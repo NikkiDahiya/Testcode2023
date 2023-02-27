@@ -23,14 +23,14 @@ IWebElement passwordTextbox = driver.FindElement(By.Id("Password"));
 passwordTextbox.SendKeys("123123");
 
 //Indentify the log in button and click on checkon it
-IWebElement LoginButton = driver.FindElement(By.XPath("//*[@id=\"loginForm\"]/form/div[3]/input[1]"));
+IWebElement LoginButton = driver.FindElement(By.XPath("//*[@id=\"loginForm\"]/form/div[3]/input[1]")); 
 LoginButton.Click();
 Thread.Sleep(3000);
 
 //Check if the user is successfully login
-IWebElement hellohari = driver.FindElement(By.XPath("//*[@id=\"logoutForm\"]/ul/li/a"));
+IWebElement hellohari = driver.FindElement(By.XPath("//*[@id=\"logoutForm\"]/ul/li/a")); 
 
-if (hellohari.Text == "Hello Hari!")
+if (hellohari.Text == "Hello hari!")
 {
     Console.WriteLine("loggedin successful"); 
 
@@ -79,7 +79,7 @@ saveButton.Click();
 Thread.Sleep(3000);
 
 //Check if the new record has been created
-IWebElement goToLastPageButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
+IWebElement goToLastPageButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]"));
 goToLastPageButton.Click();
 Thread.Sleep(3000);
 
@@ -97,23 +97,25 @@ else
 
 
 
-//Check if the record has been deleted
-//IWebElement goToDeleteButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[8]/td[1]"));
-//goToDeleteButton.Click();
+//Check if last record has been deleted
+IWebElement goToDeleteButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[8]/td[1]"));
+goToDeleteButton.Click();
+//Confirm to delete and click on ok button
+//IwebElement Driver.SwitchTo().Alert().Accept();
 
 
-//IWebElement deleteRecord = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[Last()]/td[1]"));
-//if (deleteRecord.Text == "Testcode2023")
-//{
-// Console.WriteLine(" Record has been deleted successfully");
+IWebElement deleteRecord = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[Last()]/td[1]"));
+if (deleteRecord.Text == "Testcode2023")
+{
+Console.WriteLine(" Record has been deleted successfully");
 
-//}
-//else
-//{
-//  Console.WriteLine("Recond has not been deleted");
-//}
+}
+else
+{
+ Console.WriteLine("Recond has not been deleted");
+}
 //click on Edit button
-IWebElement EditButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[3]/td[5]/a[1]"));
+IWebElement EditButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[4]/td[5]/a[1]"));
 EditButton.Click();
 Thread.Sleep(1000);
 
@@ -126,12 +128,12 @@ timeEditOption.Click();
 
 //Input Edit Code into Code  textbox
 IWebElement EditcodeTextbox = driver.FindElement(By.Id("Code"));
-EditcodeTextbox.SendKeys("Testcode22023");
+EditcodeTextbox.SendKeys("Nikki");
 Thread.Sleep(1000);
 
 //Input Edit description into Description textbox
 IWebElement EditdescriptionTextbox = driver.FindElement(By.Id("Description"));
-EditdescriptionTextbox.SendKeys("Testcode22023");
+EditdescriptionTextbox.SendKeys("Test");
 Thread.Sleep(1000);
 
 //Input Edit Price per unit into price per unit textbox
@@ -145,14 +147,14 @@ EditsaveButton.Click();
 Thread.Sleep(3000);
 
 //Check if the new record has been Edited
-IWebElement EditgoToLastPageButton = driver.FindElement(By.XPath("//*[@id=\"container\"]/div/a"));
+IWebElement EditgoToLastPageButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
 EditgoToLastPageButton.Click();
 Thread.Sleep(5000);
 
 IWebElement EditCode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[3]/td[1]"));
 if (EditCode.Text == "Testcode22023")
 {
-    Console.WriteLine(" Record edit successfully");
+    Console.WriteLine(" Record has been edited successfully");
 
 }
 else
