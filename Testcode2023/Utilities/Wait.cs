@@ -15,18 +15,18 @@ namespace Testcode2023.Utilities
         {
             var wait = new WebDriverWait(driver, new TimeSpan(0, 0, seconds));
 
-            if (locatorType == "Xpath")
-            {
+            if (locatorType == "XPath")
+             {
                 wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath("locatorValue")));
-            }
+             }
             if (locatorType == "Id")
-            {
+             {
                 wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.Id("locatorValue")));
-            }
+             }
             if (locatorType == "CssSelector")
-            {
+             {
                 wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.CssSelector("locatorValue")));
-            }
+             }
 
         }
     }

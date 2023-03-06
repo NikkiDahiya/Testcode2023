@@ -10,19 +10,18 @@ namespace Testcode2023.Pages
 {
     public class HomePage
     {
-      public   void GoToTMPage(IWebDriver driver)
+            public void GoToTMPage(IWebDriver driver)
             {
 
             //Navigate to Time and Material page
+             IWebElement adminstrationDropdown = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/a"));
+             adminstrationDropdown.Click();
+
            
-
-                IWebElement adminstrationDropdown = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/a"));
-                adminstrationDropdown.Click();
-
-            Wait.WaitToBeClickable( driver,"Xpath", "/html/body/div[3]/div/div/ul/li[5]/ul/li[3]/a", 5);
-                IWebElement timeMaterial = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/ul/li[3]/a"));
-                timeMaterial.Click();
-                 Thread.Sleep(1000);
+              //Wait.WaitToBeClickable( driver,"Xpath", "/html/body/div[3]/div/div/ul/li[5]/ul/li[3]/a",5);
+              IWebElement timeMaterial = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/ul/li[3]/a"));
+              timeMaterial.Click();
+              Thread.Sleep(2000);
 
 
             }
