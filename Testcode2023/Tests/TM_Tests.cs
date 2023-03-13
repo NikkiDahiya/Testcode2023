@@ -12,26 +12,17 @@ using Testcode2023.Utilities;
 namespace Testcode2023.Tests
 {
     [TestFixture]
+    [Parallelizable]
     public class TM_Tests : CommonDriver
     
     {
-        [SetUp]
-        public void LoginSteps()
-        {
+        // Page objects initialization
+        HomePage homePageObj = new HomePage();
+        TMPage tmPageObj = new TMPage();
 
-            driver = new ChromeDriver();
-
-            //Login page object initialization and definition
-            LoginPage LoginPageObj = new LoginPage();
-            LoginPageObj.LoginAction(driver);
-
-            //Home page object initialization and definition
-            HomePage HomePageObj = new HomePage();
-            HomePageObj.GoToTMPage(driver);
-
-        }
 
         [Test, Order(1)]
+        
         public void CreateTMTest()
 
         {
@@ -43,26 +34,20 @@ namespace Testcode2023.Tests
         }
 
         [Test, Order(2)]
-        public void EditTMTest()
+        public void EditTM()
         {
             //Edit TM
             TMPage TMPageObj = new TMPage();
-            TMPageObj.EditTM(driver);
+            TMPageObj.EditTM(driver, "description");
         }
 
         [Test, Order(3)]
-        public void DeleteTMTest()
+        public void DeleteTM()
         {
 
             //DElete TM
             TMPage TMPageObj = new TMPage();
             TMPageObj.DeleteTM(driver);
-        }
-
-        [TearDown]
-        public void CloseTestRun()
-        {
-            driver.Quit();
         }
     }
 }
